@@ -1,24 +1,28 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "jackpal.androidterm"
+//        applicationId "jackpal.androidterm"
         minSdkVersion 4
         targetSdkVersion 22
 
         ndk {
             moduleName "libjackpal-androidterm5"
-            abiFilters 'armeabi', 'mips', 'x86'
+//            abiFilters 'x86_64'
             ldLibs "log"
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize '8g'
     }
 
     buildTypes {
